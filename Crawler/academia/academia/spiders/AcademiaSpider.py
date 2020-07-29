@@ -1,12 +1,10 @@
-from datetime import datetime
-import re
 
-import isodate as isodate
+import re
 import scrapy
 class AcademiaSpider(scrapy.Spider):
     name = "academia"
     url_base = "https://academia.stackexchange.com/"
-    start_urls =['https://academia.stackexchange.com/questions/tagged/ethics']
+    start_urls =['https://academia.stackexchange.com/questions/tagged/covid-19']
 
     def parse(self, response):
         yield from self.parseQuestion(response)
