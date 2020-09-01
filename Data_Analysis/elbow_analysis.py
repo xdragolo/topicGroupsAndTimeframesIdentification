@@ -16,11 +16,12 @@ def draw_elbow(limit,X):
     plt.xlabel('k')
     plt.ylabel('Sum_of_squared_distances')
     plt.title('Elbow Method For Optimal k')
-    plt.show()
     plt.savefig('elbow.png')
+    plt.show()
 
-df = pd.read_json('../Data/academia3.json')
+
+df = pd.read_json('../Data/covid.json')
 documents = df['post_text']
 vectorizer = TfidfVectorizer(ngram_range=(1,3), max_df=0.8, min_df=2,stop_words='english')
 X = vectorizer.fit_transform(documents)
-draw_elbow(100,X)
+draw_elbow(70,X)
