@@ -11,11 +11,11 @@ from pandas import read_json
 # import igraph
 
 
-with open(r'.\Data\all.json') as f:
+with open(r'C:\Users\annad\Documents\IGA\academia_exchage\Data\all.json') as f:
     data = json.load(f)
 df = pd.DataFrame(data)
 
-with open(r'.\Data_Analysis\most_frequent_tags.json', 'r') as f:
+with open(r'C:\Users\annad\Documents\IGA\academia_exchage\Data_Analysis\most_frequent_tags.json', 'r') as f:
     n_most_frequent = json.load(f)
 
 def heatmap(df, n_most_frequent, name):
@@ -37,7 +37,7 @@ def heatmap(df, n_most_frequent, name):
             coocurences.at[n2, n1] += 1
 
     coocurences = coocurences.loc[n_most_frequent, n_most_frequent]
-
+    absolute = coocurences
 
     sum_list = []
     for i in coocurences.index.to_list():
@@ -49,10 +49,13 @@ def heatmap(df, n_most_frequent, name):
     coocurences = coocurences.loc[:, first: last].div(coocurences["sum"], axis=0)
 
 
-    sns.heatmap(coocurences)
-    plt.savefig('./figures/'+name, bbox_inches='tight')
-    plt.show()
+    # sns.heatmap(coocurences)
+    # # plt.savefig('./figures/'+name, bbox_inches='tight')
+    # plt.show()
+    return coocurences, absolute
 
+co, ab = heatmap(df,n_most_frequent,'name')
+print(ab)
 # conn_indices = np.where(coocurences)
 # # print(conn_indices)
 # weights = coocurences.values
