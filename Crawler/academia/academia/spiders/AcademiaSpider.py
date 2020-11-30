@@ -9,8 +9,7 @@ class AcademiaSpider(scrapy.Spider):
     name = "academia"
     url_base = "https://academia.stackexchange.com/"
 
-    # with open(r'C:\Users\annad\Documents\IGA\academia_exchage\Crawler\academia\academia\spiders\most_common_tags.json', 'r') as f:
-    #     tags = json.load(f)
+
     url = []
     tags = ['personal-misconduct', 'research-misconduct', 'sexual-misconduct', 'abuse', 'acknowledgement', 'cheating',
             'discrimination', 'disreputable-publishers','plagiarism', 'self-plagiarism']
@@ -84,7 +83,6 @@ class AcademiaSpider(scrapy.Spider):
         answers = []
         for a in ans:
             answer = {}
-            # TODO:hlasy u odpovedi??
             # a.xpath('.//div[@class,"post-layout"]/div[@class,"js-voting-container grid fd-column ai-stretch gs4 fc-black-200"]')
             text = a.xpath(
                 './/div[@class="post-layout"]/div[@class="answercell post-layout--right"]/div[@class="post-text"]')
