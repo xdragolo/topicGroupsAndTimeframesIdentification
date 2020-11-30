@@ -49,13 +49,14 @@ def heatmap(df, n_most_frequent, name):
     coocurences = coocurences.loc[:, first: last].div(coocurences["sum"], axis=0)
 
 
-    # sns.heatmap(coocurences)
-    # # plt.savefig('./figures/'+name, bbox_inches='tight')
-    # plt.show()
+    sns.heatmap(coocurences)
+    plt.title('Heatmap representing frequency of occurrences of two tag in percentage')
+    plt.savefig('./figures/'+name, bbox_inches='tight')
+    plt.show()
     return coocurences, absolute
 
 co, ab = heatmap(df,n_most_frequent,'name')
-print(ab)
+# print(ab)
 # conn_indices = np.where(coocurences)
 # # print(conn_indices)
 # weights = coocurences.values

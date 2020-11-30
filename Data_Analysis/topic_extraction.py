@@ -101,5 +101,8 @@ plt.scatter(centers2d[:, 0], centers2d[:, 1],
 
 plt.scatter(data2d[:, 0], data2d[:, 1],
             c=assigned_clusters)
+plt.title('Sentences embedding space')
+plt.xlabel('Axis x')
+plt.ylabel('Axis y')
 plt.savefig('./figures/cluster_visualisation.png')
 plt.show()

@@ -8,7 +8,7 @@ with open(r'C:\Users\annad\Documents\IGA\academia_exchage\Data\academic_miscondu
 df = pd.DataFrame(data)
 
 n_most_frequent = ['personal-misconduct', 'research-misconduct', 'sexual-misconduct', 'abuse', 'acknowledgement', 'cheating',
-            'discrimination', 'disreputable-publishers','plagiarism', 'self-plagiarism']
+            'disreputable-publishers','plagiarism', 'self-plagiarism']
 
 heatmap(df,n_most_frequent,'academic_misconduct_heatmap.png')
 
